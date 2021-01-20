@@ -1,6 +1,7 @@
 <?php
 
 use core\classes\Database;
+use core\classes\Functions;
 
 // abrir a sessao
 session_start();
@@ -12,3 +13,8 @@ require_once('../config.php');
 require_once('../vendor/autoload.php');
 
 $a = new Database();
+$b = new Functions();
+
+$b->teste();
+
+echo 'OK';
