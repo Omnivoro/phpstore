@@ -18,3 +18,12 @@ $b = new Functions();
 $b->teste();
 
 echo 'OK';
+
+/* 
+carregar o config
+carregar classes
+carregar o sistema de rotas
+    - mostrar loja
+    - mostrar carrinho
+    - mostrar o backoffice, etc
+*/
