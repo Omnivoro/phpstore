@@ -1,0 +1,12 @@
+{
+    "name": "omnivoro/phpstore",
+    "description": "PHP Webstore - Curso de PHP de João Ribeiro",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Omnivoro",
+            "email": "omnivoro@gmail.com"
+        }
+    ],
+    "require": {}
+}
