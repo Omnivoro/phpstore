@@ -20,10 +20,10 @@ echo '</pre>';
 //Formato dos resultados que a base de dados envia:
 
 //Resultado tipo array - fetchAll(PDO::FETCH_CLASSS);
-echo $clientes[0]->nome;
+//echo $clientes[0]->nome;
 
 //Resultado tipo array - fetchAll(PDO::FETCH_ASSOC);
-//echo $clientes[0]['nome'];
+echo $clientes[0]['nome'];
 
 
 
