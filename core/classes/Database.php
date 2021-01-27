@@ -2,6 +2,7 @@
 
 namespace core\classes;
 
+use Exception;
 use PDO;
 use PDOException;
 
@@ -37,23 +38,28 @@ class Database{
     // ============================================================
     public function select($sql, $parametros = null){
 
-        // executa função de pesquisa de SQL
+        // verifica se é uma instrução SELECT
+        if(!preg_match("/^SELECT/i", $sql)){
+            throw new Exception('Base de dados - Não é uma instrução SELECT.');
+        }
+
+        // liga
         $this->ligar();
 
         $resultados = null;
 
-        // comunicar
+        // comunica
         try {
             
             // comunicação com a bd
             if(!empty($parametros)){
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute($parametros);
-                $resultados = $executar->fetchAll(PDO::FETCH_ASSOC);
+                $resultados = $executar->fetchAll(PDO::FETCH_CLASS);
             } else {
                 $executar = $this->ligacao->prepare($sql);
                 $executar->execute();
-                $resultados = $executar->fetchAll(PDO::FETCH_ASSOC);
+                $resultados = $executar->fetchAll(PDO::FETCH_CLASS);
             }
         } catch (PDOException $e) {
             
@@ -61,10 +67,10 @@ class Database{
             return false;
         }
 
-        // desligar da bd
+        // desliga da bd
         $this->desligar();
 
-        // devolver os resultados obtidos
+        // devolve os resultados obtidos
         return $resultados;
     }
 }

@@ -12,18 +12,13 @@ require_once('../config.php');
 require_once('../vendor/autoload.php');
 
 $bd = New Database();
-$clientes = $bd->select("SELECT * FROM clientes");
+/*$clientes = $bd->select("SELECT * FROM clientes");
 echo '<pre>';
-print_r($clientes);
-echo '</pre>';
+echo $clientes[2]->nome;
+echo '</pre>';*/
 
-//Formato dos resultados que a base de dados envia:
+$bd->select("INSERT teste");
 
-//Resultado tipo array - fetchAll(PDO::FETCH_CLASSS);
-//echo $clientes[0]->nome;
-
-//Resultado tipo array - fetchAll(PDO::FETCH_ASSOC);
-echo $clientes[0]['nome'];
 
 
 
