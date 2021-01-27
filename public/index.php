@@ -12,15 +12,6 @@ require_once('../config.php');
 require_once('../vendor/autoload.php');
 
 $bd = New Database();
-/*$clientes = $bd->select("SELECT * FROM clientes");
-echo '<pre>';
-echo $clientes[2]->nome;
-echo '</pre>';*/
-
-$bd->select("INSERT teste");
-
-
-
-
+//$bd->statement("TRUNCATE clientes");
 
 
