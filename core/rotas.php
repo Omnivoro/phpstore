@@ -23,5 +23,8 @@ if(isset($_GET['a'])){
 
 // trata a definição da rota
 $partes = explode('@',$rotas[$acao]);
+$controlador = 'core\\controladores\\'.ucfirst($partes[0]);
+$metodo = $partes[1];
 
-var_dump($partes);
+$ctr = new $controlador();
+$ctr->$metodo();
