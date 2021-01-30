@@ -1,7 +1,5 @@
 <?php
 
-use core\classes\Database;
-
 // abrir a sessao
 session_start();
 
@@ -11,8 +9,5 @@ require_once('../config.php');
 // carrega todas as classes do projeto
 require_once('../vendor/autoload.php');
 
-$bd = New Database();
-$clientes = $bd->select("SELECT * FROM clientes");
-echo '<pre>';
-print_r($clientes);
-echo '</pre>';
+// carrega o sistema de rotas
+require_once('../core/rotas.php');
