@@ -10,11 +10,10 @@ class Main{
     public function index(){
 
         
-        $clientes = ['joao', 'ana', 'carlos'];
-		
-		$dados = [
-			'titulo' => 'Este é o título'
-		];
+        $dados = [
+            'titulo' => 'Este é o título',
+            'clientes' => ['joao', 'ana', 'carlos']
+        ];
 
         Functions::Layout([
             'layouts/html_header',
