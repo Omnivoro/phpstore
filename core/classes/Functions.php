@@ -20,5 +20,7 @@ class Functions{
         foreach($estruturas as $estrutura){
             include("../core/views/$estrutura.php");
         }
+		
     }
+	
 }
