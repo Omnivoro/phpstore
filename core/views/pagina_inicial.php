@@ -1,1 +1,1 @@
-<h1>Página inicial!!!!!</h1>
+<h1><?= $titulo ?></h1>

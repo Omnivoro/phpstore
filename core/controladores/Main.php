@@ -11,12 +11,16 @@ class Main{
 
         
         $clientes = ['joao', 'ana', 'carlos'];
+		
+		$dados = [
+			'titulo' => 'Este é o título'
+		];
 
         Functions::Layout([
             'layouts/html_header',
             'pagina_inicial',
             'layouts/html_footer',
-        ]);
+        ],$dados);
 
     }
 
