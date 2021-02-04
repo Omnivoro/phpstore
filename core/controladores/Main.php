@@ -11,7 +11,7 @@ class Main{
 
         
         $dados = [
-            'titulo' => 'Este é o título',
+            'titulo' => APP_NAME . ' ' . APP_VERSION,
             'clientes' => ['joao', 'ana', 'carlos']
         ];
 

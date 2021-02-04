@@ -8,5 +8,3 @@ require_once('../vendor/autoload.php');
 
 // carrega o sistema de rotas
 require_once('../core/rotas.php');
-
-echo APP_NAME;
