@@ -2,7 +2,7 @@
 
 namespace core\controladores;
 
-use core\classes\Functions;
+use core\classes\Store;
 
 class Main{
 
@@ -15,7 +15,7 @@ class Main{
             'clientes' => ['joao', 'ana', 'carlos']
         ];
 
-        Functions::Layout([
+        Store::Layout([
             'layouts/html_header',
             'pagina_inicial',
             'layouts/html_footer',
