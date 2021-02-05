@@ -16,7 +16,8 @@ class Main{
         ];
 
         Store::Layout([
-            'layouts/html_header',			
+            'layouts/html_header',
+			'layouts/header',
             'layouts/html_footer',
         ],$dados);
 
