@@ -19,6 +19,7 @@ class Main{
             'layouts/html_header',
 			'layouts/header',
 			'inicio',
+			'layouts/footer',
             'layouts/html_footer',
         ],$dados);
 
