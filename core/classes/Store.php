@@ -26,4 +26,10 @@ class Store{
 		
     }
 	
+	public static function clienteLogado(){
+		
+		//verifica se existe um cliente com sessao
+		return isset($_SESSION['cliente']);
+	}
+	
 }
