@@ -8,8 +8,8 @@
 		<div class="col-6 text-end p-3">		
 			<a href="?a=inicio">Início</a>
 			<a href="?a=loja">Loja</a>
-			<a href=""><i class="fas fa-shopping-cart"></i></a>
-			<span class="badge bg-warning">10</span>
+			<a href="?a=carrinho"><i class="fas fa-shopping-cart"></i></a>
+			<span class="badge bg-warning"></span>
 		</div>
 	</div>
 </div>
