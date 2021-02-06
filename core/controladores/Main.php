@@ -21,7 +21,14 @@ class Main{
 
     // ===========================================================
     public function loja(){
-        echo 'Loja!!!!!!';
+        
+		Store::Layout([
+            'layouts/html_header',
+			'layouts/header',
+			'loja',
+			'layouts/footer',
+            'layouts/html_footer',
+        ]);
     }
 
 }

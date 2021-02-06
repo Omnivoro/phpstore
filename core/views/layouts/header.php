@@ -5,10 +5,9 @@
 				<h3><?= APP_NAME?></h3>
 			</a>
 		</div>			
-		<div class="col-6 text-end p-3">
-			<a href="">Item 1</a>
-			<a href="">Item 2</a>
-			<a href="">Item 3</a>
+		<div class="col-6 text-end p-3">		
+			<a href="?a=inicio">Início</a>
+			<a href="?a=loja">Loja</a>
 			<a href=""><i class="fas fa-shopping-cart"></i></a>
 			<span class="badge bg-warning">10</span>
 		</div>
