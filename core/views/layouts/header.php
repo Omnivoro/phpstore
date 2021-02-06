@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid navegacao">
 	<div class="row">
-		<div class="col-6 text-start p-3"><?= APP_NAME?></div>
+		<div class="col-6 text-start p-3"><h3><?= APP_NAME?></h3></div>
 		<div class="col-6 text-end p-3">
 			<a href="">Item 1</a>
 			<a href="">Item 2</a>
