@@ -61,6 +61,13 @@ class Main{
 			return;
 		}
 	
+		//verifica se houve submissão de um formulário
+		if($_SERVER['REQUEST_METHOD'] != 'POST'){
+			$this->index();
+			return;
+		}
+		
+		echo 'OK';
 	}
 		
 	
