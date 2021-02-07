@@ -42,14 +42,11 @@ class Main{
 			return;
 		}
 		
-		//$_SESSION['cliente'] = 1;
-        die('Ok');
-		
 		//apresenta o layout para criar um novo utilizador
 		Store::Layout([
             'layouts/html_header',
 			'layouts/header',
-			'novo_cliente',
+			'criar_cliente',
 			'layouts/footer',
             'layouts/html_footer',
         ]);
