@@ -19,7 +19,7 @@
 				<a href="" class="nav-item">Logout</a>
 			<?php else:?>
 				<a href="" class="nav-item">Login</a>
-				<a href=""class="nav-item">Criar conta</a>
+				<a href="?a=novo_cliente"class="nav-item">Criar conta</a>
 			<?php endif;?>
 			<a href="?a=carrinho"><i class="fas fa-shopping-cart"></i></a>
 			<span class="badge bg-warning"></span>

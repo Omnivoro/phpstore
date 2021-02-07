@@ -4,6 +4,8 @@
 $rotas = [
     'inicio' => 'main@index',
     'loja' => 'main@loja',
+	//cliente
+	'novo_cliente' => 'main@novo_cliente',
 	'carrinho' => 'main@carrinho',
 ];
 

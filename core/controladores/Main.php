@@ -34,6 +34,28 @@ class Main{
     }
 	
 	// ===========================================================
+    public function novo_cliente(){
+		
+		//verifica se já existe sessão aberta
+		if(Store::clienteLogado()){
+			$this->index();
+			return;
+		}
+		
+		//$_SESSION['cliente'] = 1;
+        die('Ok');
+		
+		//apresenta o layout para criar um novo utilizador
+		Store::Layout([
+            'layouts/html_header',
+			'layouts/header',
+			'novo_cliente',
+			'layouts/footer',
+            'layouts/html_footer',
+        ]);
+    }
+	
+	// ===========================================================
     public function carrinho(){
         
 		//apresenta a página do carrinho
@@ -45,5 +67,5 @@ class Main{
             'layouts/html_footer',
         ]);
     }
-
+	
 }
