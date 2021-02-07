@@ -67,6 +67,13 @@ class Main{
 			return;
 		}
 		
+		//verifica se a senha 1 é diferente a senha 2
+		if($_POST['text_senha_1'] !== $_POST['text_senha_2']){
+			$_SESSION['error'] = 'As senhas não são iguais';
+			$this->novo_cliente();
+			return;
+		}
+		
 		echo 'OK';
 	}
 		
