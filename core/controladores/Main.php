@@ -53,6 +53,15 @@ class Main{
     }
 	
 	// ===========================================================
+    public function criar_cliente(){
+		
+		echo '<pre>';
+		print_r($_POST);
+	
+	}
+		
+	
+	// ===========================================================
     public function carrinho(){
         
 		//apresenta a página do carrinho
