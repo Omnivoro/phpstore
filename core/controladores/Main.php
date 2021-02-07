@@ -1,8 +1,11 @@
 <?php
 
+
 namespace core\controladores;
 
 use core\classes\Store;
+use core\classes\Database;
+
 
 class Main{
 
@@ -74,7 +77,24 @@ class Main{
 			return;
 		}
 		
-		echo 'OK';
+		//verifica se existe na base de dados cliente com o mesmo email
+		$db = new Database();
+		
+		$parametros = [
+			':e' => strtolower(trim($_POST['text_email']))
+		];
+		
+		$resultados = $db->select("
+			SELECT email FROM clientes WHERE email = :e", 
+		$parametros);
+		
+		//se o cliente já existe
+		if(count($resultados)!=0){
+			$_SESSION['error'] = 'Já exite um cliente com o mesmo email';
+			$this->novo_cliente();
+			return;
+		}	
+		die('OK');
 	}
 		
 	
