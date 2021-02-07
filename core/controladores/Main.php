@@ -55,8 +55,11 @@ class Main{
 	// ===========================================================
     public function criar_cliente(){
 		
-		echo '<pre>';
-		print_r($_POST);
+		//verifica se já existe sessão aberta
+		if(Store::clienteLogado()){
+			$this->index();
+			return;
+		}
 	
 	}
 		
