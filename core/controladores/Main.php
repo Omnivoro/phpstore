@@ -127,7 +127,9 @@ class Main{
             )
         ", $parametros);
 
-		die('inserido');
+		// criar o link purl para enviar por email
+        $link_purl = "https://phpstore-svvtc.run-eu-central1.goorm.io/phpstore/public/?a=confirmar_email&purl=$purl";
+		
 	}
 		
 	
