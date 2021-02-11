@@ -94,7 +94,10 @@ class Main{
 			$this->novo_cliente();
 			return;
 		}	
-		die('OK');
+		
+		// cliente pronto para ser inserido na base de dados
+        $purl = Store::criarHash();
+		echo $purl;
 	}
 		
 	

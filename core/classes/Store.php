@@ -26,10 +26,19 @@ class Store{
 		
     }
 	
+	// ===========================================================
 	public static function clienteLogado(){
 		
 		//verifica se existe um cliente com sessao
 		return isset($_SESSION['cliente']);
 	}
+	
+	// ===========================================================
+    public static function criarHash($num_caracteres = 12){
+
+        // criar hashes
+        $chars = '01234567890123456789abcdefghijklmnopqrstuwxyzabcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZABCDEFGHIJKLMNOPQRSTUWXYZ';
+        return substr(str_shuffle($chars), 0, $num_caracteres);
+    }
 	
 }
