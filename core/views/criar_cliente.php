@@ -21,22 +21,22 @@
 				<!-- nome_completo -->
 				<div class="my-3">
 					<label>Nome Completo</label>
-					<input type="text" name="nome_completo" class="form-control" placeholder="Nome Completo" required>
+					<input type="text" name="text_nome_completo" class="form-control" placeholder="Nome Completo" required>
 				</div>
 				<!-- morada -->
 				<div class="my-3">
 					<label>Morada</label>
-					<input type="text" name="morada" class="form-control" placeholder="Morada" required>
+					<input type="text" name="text_morada" class="form-control" placeholder="Morada" required>
 				</div>
 				<!-- cidade -->
 				<div class="my-3">
 					<label>Cidade</label>
-					<input type="text" name="cidade" class="form-control" placeholder="Cidade" required>
+					<input type="text" name="text_cidade" class="form-control" placeholder="Cidade" required>
 				</div>
 				<!-- telefone -->
 				<div class="my-3">
 					<label>Telefone</label>
-					<input type="text" name="telefone" class="form-control" placeholder="Telefone">
+					<input type="text" name="text_telefone" class="form-control" placeholder="Telefone">
 				</div>
 				<!-- submit -->
 				<div class="my-4">

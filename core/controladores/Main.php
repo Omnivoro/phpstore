@@ -78,16 +78,17 @@ class Main{
 		}
 		
 		//verifica se existe na base de dados cliente com o mesmo email
-		$db = new Database();
+		$bd = new Database();
 		
 		$parametros = [
 			':e' => strtolower(trim($_POST['text_email']))
 		];
 		
-		$resultados = $db->select("
+		$resultados = $bd->select("
 			SELECT email FROM clientes WHERE email = :e", 
 		$parametros);
 		
+			
 		//se o cliente já existe
 		if(count($resultados)!=0){
 			$_SESSION['error'] = 'Já exite um cliente com o mesmo email';
@@ -97,7 +98,36 @@ class Main{
 		
 		// cliente pronto para ser inserido na base de dados
         $purl = Store::criarHash();
-		echo $purl;
+		
+		$parametros = [
+            ':email' => strtolower(trim($_POST['text_email'])),
+            ':senha' => password_hash(trim($_POST['text_senha_1']), PASSWORD_DEFAULT),
+            ':nome_completo' => trim($_POST['text_nome_completo']),
+            ':morada' => trim($_POST['text_morada']),
+            ':cidade' => trim($_POST['text_cidade']),
+            ':telefone' => trim($_POST['text_telefone']),
+            ':purl' => $purl,
+            ':ativo' => 0
+        ];
+		
+        $bd->insert("
+            INSERT INTO clientes VALUES(
+                0,
+                :email,
+                :senha,
+                :nome_completo,
+                :morada,
+                :cidade,
+                :telefone,
+                :purl,
+                :ativo,
+                NOW(),
+                NOW(),
+                NULL
+            )
+        ", $parametros);
+
+		die('inserido');
 	}
 		
 	
