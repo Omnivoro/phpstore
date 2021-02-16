@@ -13,27 +13,27 @@ class EnviarEmail{
 	// ============================================================
     public function enviar_email_confirmacao_novo_cliente(){
 			
-		// Instantiation and passing `true` enables exceptions
+		// envia um email para o novo clinte no sentido de confirmar o email
 		$mail = new PHPMailer(true);
 
 		try {
 			//Server settings
-			$mail->SMTPDebug = SMTP::DEBUG_SERVER;          // Enable verbose debug output
-			$mail->isSMTP();                                // Send using SMTP
-			$mail->Host       = 'localhost';   				// Set the SMTP server to send through
+			$mail->SMTPDebug = SMTP::DEBUG_OFF;           
+			$mail->isSMTP();                                
+			$mail->Host       = EMAIL_HOST;   				 
 			$mail->SMTPSecure = 'tls';
 			$mail->SMTPOptions = array('ssl' => array('verify_peer' => false,
 									  				  'verify_peer_name' => false,
 									  				  'allow_self_signed' => true
 													));
-			$mail->Port   = 25;                                    // TCP port to connect to
+			$mail->Port   = EMAIL_PORT;                                    
 			
 			//Recipients
-			$mail->setFrom('orlando@phpstore-svvtc.run-eu-central1.goorm.io', 'PHPSTORE');
-			$mail->addAddress('refutable@gmail.com');     		// Add a recipient
+			$mail->setFrom(EMAIL_FROM, APP_NAME);
+			$mail->addAddress('refutable@gmail.com');     		 
 
 			// Content
-			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->isHTML(true);                                   
 			$mail->Subject = 'PHPSTORE - Teste';
 			$mail->Body    = 'Mensagem de teste <b>in bold!</b>';
 			
