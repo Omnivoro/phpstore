@@ -1,17 +1,22 @@
 <?php
 
-
 namespace core\controllers;
 
 use core\classes\Store;
+use core\classes\EnviarEmail;
 use core\classes\Database;
 use core\models\Clientes;
-
 
 class Main{
 
     // ===========================================================
     public function index(){
+		
+		$email = new EnviarEmail();
+		
+		$email -> enviar_email_confirmacao_novo_cliente();
+		
+		die('Ok');
 
 		//apresenta a página de inicio
         Store::Layout([
