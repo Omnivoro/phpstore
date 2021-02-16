@@ -11,9 +11,13 @@ use PHPMailer\PHPMailer\Exception;
 class EnviarEmail{
 	
 	// ============================================================
-    public function enviar_email_confirmacao_novo_cliente(){
+    public function enviar_email_confirmacao_novo_cliente($email_cliente, $purl){
 			
 		// envia um email para o novo clinte no sentido de confirmar o email
+	
+		// constroi o purl (link para validação do email)
+		$link = BASE_URL . '?a=confirmar_email&purl=' . $purl;
+			
 		$mail = new PHPMailer(true);
 
 		try {
@@ -30,17 +34,24 @@ class EnviarEmail{
 			
 			//Recipients
 			$mail->setFrom(EMAIL_FROM, APP_NAME);
-			$mail->addAddress('refutable@gmail.com');     		 
+			$mail->addAddress($email_cliente);     		 
 
 			// Content
 			$mail->isHTML(true);                                   
-			$mail->Subject = 'PHPSTORE - Teste';
-			$mail->Body    = 'Mensagem de teste <b>in bold!</b>';
+			$mail->Subject = APP_NAME . ' - Confirmação de email';
+			
+			$html = '<p>Seja bem-vindo a nossa loja ' . APP_NAME . '.</p>';
+			$html .= '<p>Para poder entrar na nossa loja, necessita confirmar o seu email</p>';
+			$html .= '<p>Para confirmar o email. click no link abaixo:</p>';
+			$html .= '<p><a href="'.$link.'">Confirmar Email</a></p>';
+			$html .= '<p><i><small>' . APP_NAME . '</small></i></p>';
+				
+			$mail->Body  = $html;
 			
 			$mail->send();
-			echo 'Message has been sent';
+			return true;
 		} catch (Exception $e) {
-			echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+			return false;
 		}		
 	}
 }

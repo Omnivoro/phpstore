@@ -12,12 +12,6 @@ class Main{
     // ===========================================================
     public function index(){
 		
-		$email = new EnviarEmail();
-		
-		$email -> enviar_email_confirmacao_novo_cliente();
-		
-		die('Ok');
-
 		//apresenta a página de inicio
         Store::Layout([
             'layouts/html_header',
@@ -95,8 +89,18 @@ class Main{
 		// inserir cliente na base de dados e devolver o purl
 		$purl = $cliente -> registar_cliente();
 			
-		// criar o link purl para enviar por email
-        $link_purl = "https://phpstore-svvtc.run-eu-central1.goorm.io/phpstore/public/?a=confirmar_email&purl=$purl";
+		// envio do email para o cliente
+        $email = new EnviarEmail();
+		
+		$email_cliente = strtolower(trim($_POST['text_email']));
+									
+		$resultado = $email -> enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
+		
+		if($resultado)
+			echo 'Email enviado com sucesso!';
+		else
+			echo 'Aconteceu algum erro';
+
 		
 	}
 		
