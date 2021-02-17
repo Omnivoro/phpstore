@@ -126,6 +126,9 @@ class Main{
 			return;
 		}
 		
+		$cliente = new Clientes();
+		
+		$cliente->validar_email($purl);
 	}
 		
 	// ===========================================================

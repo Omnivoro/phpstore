@@ -68,7 +68,32 @@ class Clientes{
 	return $purl;
 		
 	}
+	
+	// ============================================================
+	public function  validar_email($purl){
+			
+		// validar o email do novo cliente
+        $bd = new Database();
 		
+        $parametros = [
+            ':purl' => $purl
+        ];
+		
+        $resultados = $bd->select("
+            SELECT * FROM clientes 
+            WHERE purl = :purl
+        ", $parametros);
+			
+		if(count($resultados) != 1){
+			return false;
+		}
+		
+		//foi encontrado este cliente com o purl indicado
+		$id_cliente = $resultados[0]->id_cliente;
+		
+		die($resultados[0]->nome_completo);
+	}
+	
 }
 
 ?>
