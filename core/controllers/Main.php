@@ -101,7 +101,6 @@ class Main{
 		else
 			echo 'Aconteceu algum erro';
 
-		
 	}
 	
 	 // ===========================================================
@@ -109,6 +108,12 @@ class Main{
 		
 		//verifica se já existe sessão aberta
 		if(Store::clienteLogado()){
+			$this->index();
+			return;
+		}
+		
+		// verifica se na _query string_ não existe um purl
+		if(!isset($_GET['purl'])){
 			$this->index();
 			return;
 		}
