@@ -128,7 +128,13 @@ class Main{
 		
 		$cliente = new Clientes();
 		
-		$cliente->validar_email($purl);
+		$resultado = $cliente->validar_email($purl);
+
+        if($resultado){
+            echo 'Conta validada com sucesso.';
+        } else {
+            echo 'A conta não foi validada.';
+        }
 	}
 		
 	// ===========================================================

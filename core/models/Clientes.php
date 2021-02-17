@@ -91,7 +91,20 @@ class Clientes{
 		//foi encontrado este cliente com o purl indicado
 		$id_cliente = $resultados[0]->id_cliente;
 		
-		die($resultados[0]->nome_completo);
+		// atualizar os dados do cliente
+        $parametros = [
+            ':id_cliente' => $id_cliente
+        ];
+		
+        $bd->update("
+            UPDATE clientes SET
+            purl = NULL,
+            activo = 1,
+            updated_at = NOW()
+			WHERE id_cliente = :id_cliente
+        ", $parametros);
+		
+		return true;
 	}
 	
 }
