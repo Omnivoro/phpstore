@@ -103,6 +103,17 @@ class Main{
 
 		
 	}
+	
+	 // ===========================================================
+    public function confirmar_email(){
+		
+		//verifica se já existe sessão aberta
+		if(Store::clienteLogado()){
+			$this->index();
+			return;
+		}
+		
+	}
 		
 	// ===========================================================
     public function carrinho(){
