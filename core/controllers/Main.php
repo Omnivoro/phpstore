@@ -118,6 +118,14 @@ class Main{
 			return;
 		}
 		
+		$purl = $_GET['purl'];
+		
+		// verifica se o purl e válido
+		if(strlen($purl) != 12){
+			$this->index();
+			return;
+		}
+		
 	}
 		
 	// ===========================================================
