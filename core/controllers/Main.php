@@ -149,7 +149,9 @@ class Main{
         ]);
 			return;
         } else {
-            echo 'A conta não foi validada.';
+			
+            // redirecionar para a página inicial
+			Store::redirect();
         }
 	}
 	

@@ -41,4 +41,10 @@ class Store{
         return substr(str_shuffle($chars), 0, $num_caracteres);
     }
 	
+	// ===========================================================
+    public static function redirect($rota = ''){
+		
+		// faz o redirecionamento para a url desejada
+		header("Location: " . BASE_URL . "?a=$rota");
+	}
 }
