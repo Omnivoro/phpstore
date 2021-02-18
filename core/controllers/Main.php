@@ -96,9 +96,17 @@ class Main{
 									
 		$resultado = $email -> enviar_email_confirmacao_novo_cliente($email_cliente, $purl);
 		
-		if($resultado)
-			echo 'Email enviado com sucesso!';
-		else
+		// apresenta o layout para informar o envio do email de confirmação
+		if($resultado){
+			Store::Layout([
+				'layouts/html_header',
+				'layouts/header',
+				'criar_cliente_sucesso',
+				'layouts/footer',
+				'layouts/html_footer'
+        ]);
+			return;
+		}else
 			echo 'Aconteceu algum erro';
 
 	}
