@@ -175,6 +175,32 @@ class Main{
 	}
 	
 	// ===========================================================
+    public function login_submit(){
+		
+		// verifica se já existe um cliente logado
+		if(Store::clienteLogado()){
+			Store::redirect();
+			return;
+		}
+		
+		// verifica se foi efetuado o post do formulário de login
+		if($_SERVER['REQUEST_METHOD'] != 'POST'){
+			Store::redirect();
+			return;
+		}
+		
+		// verificar se o login é valido
+		if(!isset($_POST['text_usuario']) ||
+		   !isset($_POST['text_senha']) ||
+		   !filter_var(trim($_POST['text_usuario']), FILTER_VALIDATE_EMAIL)){
+			$_SESSION['erro'] = 'Login inválido';
+			Store::redirect('login');
+			return;
+		}else
+			echo 'OK';
+	}
+	
+	// ===========================================================
     public function carrinho(){
         
 		//apresenta a página do carrinho
