@@ -138,13 +138,27 @@ class Main{
 		
 		$resultado = $cliente->validar_email($purl);
 
+		// apresenta o layou que a conta foi criada com sucesso
         if($resultado){
-            echo 'Conta validada com sucesso.';
+            Store::Layout([
+				'layouts/html_header',
+				'layouts/header',
+				'conta_confirmada_sucesso',
+				'layouts/footer',
+				'layouts/html_footer'
+        ]);
+			return;
         } else {
             echo 'A conta não foi validada.';
         }
 	}
+	
+	// ===========================================================
+    public function login(){
 		
+		echo 'FORMULÁRIO LOGIN';
+	}
+	
 	// ===========================================================
     public function carrinho(){
         
