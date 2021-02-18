@@ -42,13 +42,13 @@
 				<div class="my-4">
 					<input type="submit" value="Criar conta" class="btn btn-primary">
 				</div>
-				<?php if(isset($_SESSION['error'])):?>
-					<div class="alert alert-danger text-center p-2">
-						<?= $_SESSION['error'] ?>
-						<?php unset($_SESSION['error']);?>
-					</div>
-				<?php endif;?>
 			</form>
+			<?php if(isset($_SESSION['error'])):?>
+				<div class="alert alert-danger text-center p-2">
+					<?= $_SESSION['error'] ?>
+					<?php unset($_SESSION['error']);?>
+				</div>
+			<?php endif;?>
 		</div>
 	</div>
 </div>
