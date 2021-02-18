@@ -158,7 +158,20 @@ class Main{
 	// ===========================================================
     public function login(){
 		
-		echo 'FORMULÁRIO LOGIN';
+		// verifica se já existe um cliente logado
+		if(Store::clienteLogado()){
+			Store::redirect();
+			return;
+		}
+		
+		//apresenta a página da loja
+		Store::Layout([
+            'layouts/html_header',
+			'layouts/header',
+			'login_formulario',
+			'layouts/footer',
+            'layouts/html_footer'
+        ]);
 	}
 	
 	// ===========================================================
