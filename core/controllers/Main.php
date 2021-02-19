@@ -31,8 +31,6 @@ class Main{
 		$produtos = new Produtos();
 		
 		$lista_produtos = $produtos->lista_produtos_disponiveis();
-		
-		Store::printData($lista_produtos);
         
 		//apresenta a página da loja
 		Store::Layout([
@@ -41,7 +39,7 @@ class Main{
 			'loja',
 			'layouts/footer',
             'layouts/html_footer',
-        ]);
+        ],['produtos'=>$lista_produtos]);
     }
 	
 	// ===========================================================
