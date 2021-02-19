@@ -107,6 +107,53 @@ class Clientes{
 		return true;
 	}
 	
+	// ============================================================
+	public function  validar_login($usuario, $senha){
+		
+		
+		// verificar se o login é válido
+        $parametros = [
+            ':usuario' => $usuario
+        ];
+
+        $bd = new Database();
+        /*$resultados = $bd->select("
+            SELECT * FROM clientes 
+            WHERE email = :usuario 
+            AND activo = 1 
+            AND deleted_at IS NULL
+        ", $parametros);*/
+		
+		$resultados = $bd->select("
+		SELECT * FROM clientes 
+		WHERE email = :usuario
+		AND activo = 1
+		AND deleted_at IS NULL", $parametros);
+		
+		//$count = count($resultados);
+		//die($count);
+		
+		if(count($resultados) != 1){
+			// não existe usuário
+			return false;
+		}else{
+	
+			// verifica a password
+			$usuario = $resultados[0];
+			if(!password_verify($senha, $usuario->senha)){
+                
+                // password inválida
+                return false;
+				
+			}else{
+				
+				// login válido
+				return $usuario;
+			}
+				
+		}
+	}
+	
 }
 
 ?>
