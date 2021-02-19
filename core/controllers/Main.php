@@ -196,8 +196,33 @@ class Main{
 			$_SESSION['erro'] = 'Login inválido';
 			Store::redirect('login');
 			return;
-		}else
-			echo 'OK';
+		}
+		
+		// prepara os dados para o model
+        $usuario = trim(strtolower($_POST['text_usuario']));
+        $senha = trim($_POST['text_senha']);
+
+        // carrega o model e verifica se login é válido
+        $cliente = new Clientes();
+        $resultado = $cliente->validar_login($usuario, $senha);
+
+        // analisa o resultado
+        if(is_bool($resultado)){
+         
+            // login inválido
+            $_SESSION['erro'] = 'Login inválido';
+            Store::redirect('login');
+            return;
+
+        } else {
+
+            // login válido
+            // $_SESSION['cliente'] = $resultado
+            echo '<pre>';
+            print_r($resultado);
+
+        }
+		
 	}
 	
 	// ===========================================================
