@@ -216,11 +216,14 @@ class Main{
 
         } else {
 
-            // login válido
-            // $_SESSION['cliente'] = $resultado
-            echo '<pre>';
-            print_r($resultado);
-
+            // login válido. Coloca os dados na sessão
+            $_SESSION['cliente'] = $resultado->id_cliente;
+			$_SESSION['usuario'] = $resultado->email;
+			$_SESSION['nome_cliente'] = $resultado->nome_completo;
+            
+			// redireciona para o início de nossa loja
+			Store::redirect();
+			
         }
 		
 	}
