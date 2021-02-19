@@ -72,7 +72,7 @@ class Main{
 		
 		//verifica se a senha 1 é diferente a senha 2
 		if($_POST['text_senha_1'] !== $_POST['text_senha_2']){
-			$_SESSION['error'] = 'As senhas não são iguais';
+			$_SESSION['erro'] = 'As senhas não são iguais';
 			$this->novo_cliente();
 			return;
 		}
@@ -81,7 +81,7 @@ class Main{
 		$cliente = new Clientes();
 		
 		if($cliente -> verificar_email_existe($_POST['text_email'])){
-			$_SESSION['error'] = 'Já exite um cliente com o mesmo email';
+			$_SESSION['erro'] = 'Já exite um cliente com o mesmo email';
 			$this->novo_cliente();
 			return;
 		}
@@ -224,8 +224,21 @@ class Main{
 			// redireciona para o início de nossa loja
 			Store::redirect();
 			
+			
         }
 		
+	}
+	
+	// ===========================================================
+    public function logout(){
+		
+		// remove as variáves da sessãremove
+		unset($_SESSION['cliente']);
+		unset($_SESSION['usuario']);
+		unset($_SESSION['nome_cliente']);
+		
+		// redireciona para o início de nossa loja
+			Store::redirect();
 	}
 	
 	// ===========================================================
