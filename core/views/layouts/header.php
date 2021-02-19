@@ -15,7 +15,10 @@
 			<a href="?a=loja" class="nav-item">Loja</a>
 			<!--Verifca se existe cliente na sessão -->
 			<?php if(Store::clienteLogado()):?>
-				<a href="" class="nav-item">A minha conta</a>
+				<!--<a href="" class="nav-item">-->
+				<i class="fas fa-user mr-2"></i>
+					<?= $_SESSION['usuario'];?>
+				<!--</a>-->
 				<a href="?a=logout" class="nav-item">Logout</a>
 			<?php else:?>
 				<a href="?a=login" class="nav-item">Login</a>
