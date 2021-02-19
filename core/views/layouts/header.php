@@ -19,7 +19,9 @@
 				<i class="fas fa-user mr-2"></i>
 					<?= $_SESSION['usuario'];?>
 				<!--</a>-->
-				<a href="?a=logout" class="nav-item">Logout</a>
+				<a href="?a=logout" class="nav-item">
+					<i class="fas fa-sign-out-alt"></i>
+				</a>
 			<?php else:?>
 				<a href="?a=login" class="nav-item">Login</a>
 				<a href="?a=novo_cliente"class="nav-item">Criar conta</a>
