@@ -5,10 +5,10 @@
 				<h3>LOGIN</h3>
 			</div>	
 			<form action="?a=login_submit" method="post">
-			<!-- usuário -->
+			<!-- usuรกrio -->
 				<div class="my-3">
-					<label class="text-start">Usuário:</label>
-					<input type="email" name="text_usuario" class="form-control" placeholder="Usuário" required>
+					<label class="text-start">Usuรกrio:</label>
+					<input type="email" name="text_usuario" class="form-control" placeholder="Usuรกrio" required>
 				</div>
 				<!-- senha -->
 				<div class="my-3">
@@ -23,7 +23,7 @@
 			<?php if(isset($_SESSION['erro'])):?>
 				<div class="alert alert-danger text-center p-2">
 					<?= $_SESSION['erro'] ?>
-					<?php unset($_SESSION['error']);?>
+					<?php unset($_SESSION['erro']);?>
 				</div>
 			<?php endif;?>
 		</div>
