@@ -1,4 +1,4 @@
-<?php $produto = $produtos[0]; ?>
+<?php //$produto = $produtos[0]; ?>
 
 <div class="container-fluid espaco-fundo">
 	<div class="row">
@@ -9,17 +9,19 @@
 	
 	<!-- produtos -->
 	<div class="row">
-		<div class="col-sm-4">
-			<div class="text-center p-3">
-				<img src="assets/images/produtos/<?= $produto->imagem ?>" >
-				<h3><?= $produto->nome_produto ?></h3>
-				<h2><?= $produto->preco ?></h2>
-				<p><small><?= $produto->descricao ?></small></p>
-				<div>
-					<button>Addicionar ao carrinho</button>
+		<?php foreach($produtos as $produto): ?>
+			<div class="col-sm-4 col-6">
+				<div class="text-center p-3">
+					<img src="assets/images/produtos/<?= $produto->imagem ?>" class="img-fluid" >
+					<h3><?= $produto->nome_produto ?></h3>
+					<h2><?= $produto->preco ?></h2>
+					<p><small><?= $produto->descricao ?></small></p>
+					<div>
+						<button>Addicionar ao carrinho</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php endforeach; ?>
 	</div>
 </div>
 
