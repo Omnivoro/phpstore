@@ -36,6 +36,12 @@ class Main{
 			$c = $_GET['c'];
 		
 		$lista_produtos = $produtos->lista_produtos_disponiveis($c);
+		$lista_categorias = $produtos->lista_categorias();
+		
+		$dados = [
+			'produtos' => $lista_produtos,
+			'categorias' => $lista_categorias
+		];
         
 		//apresenta a página da loja
 		Store::Layout([
@@ -44,7 +50,7 @@ class Main{
 			'loja',
 			'layouts/footer',
             'layouts/html_footer',
-        ],['produtos'=>$lista_produtos]);
+        ], $dados);
     }
 	
 	// ===========================================================
