@@ -1,21 +1,20 @@
 <?php //$produto = $produtos[0]; ?>
 
-<div class="container-fluid espaco-fundo">
+<div class="container espaco-fundo">
 	<div class="row">
 		<div class="col-12">
-			<h3>Loja</h3>	
+			<h3>Loja Online</h3>	
 		</div>
 	</div>
 	
 	<!-- produtos -->
 	<div class="row">
 		<?php foreach($produtos as $produto): ?>
-			<div class="col-sm-4 col-6">
-				<div class="text-center p-3">
+			<div class="col-sm-4 col-6 p-2">
+				<div class="text-center p-3 box-produto">
 					<img src="assets/images/produtos/<?= $produto->imagem ?>" class="img-fluid" >
 					<h3><?= $produto->nome_produto ?></h3>
 					<h2><?= $produto->preco ?></h2>
-					<p><small><?= $produto->descricao ?></small></p>
 					<div>
 						<button>Addicionar ao carrinho</button>
 					</div>
