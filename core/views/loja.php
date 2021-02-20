@@ -2,8 +2,10 @@
 
 <div class="container espaco-fundo">
 	<div class="row">
-		<div class="col-12">
-			<h3>Loja Online</h3>	
+		<div class="col-12 text-center my-4">
+			<a href="?a=loja&c=todos" class="btn btn-primary">Todos</a>
+			<a href="?a=loja&c=homem" class="btn btn-primary">Homem</a>
+			<a href="?a=loja&c=mulher" class="btn btn-primary">Mulher</a>
 		</div>
 	</div>
 	
