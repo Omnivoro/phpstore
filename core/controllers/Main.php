@@ -30,7 +30,7 @@ class Main{
 		// busca a lista de produtos disponíveis
 		$produtos = new Produtos();
 		
-		// analisa que categoria mostrará
+		// analisa que categoria mostrarális
 		$c = 'todos';
 		if(isset($_GET['c']))
 			$c = $_GET['c'];
