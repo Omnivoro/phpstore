@@ -9,12 +9,18 @@ use core\classes\Store;
 class Produtos{
 	
 	// ============================================================
-	public function lista_produtos_disponiveis(){
+	public function lista_produtos_disponiveis($categoria){
 		
 		$bd = new Database();
 		
+		$sql = "SELECT * FROM produtos WHERE visivel = 1";
+		
+		if($categoria == 'homem' || $categoria == 'mulher'){
+			$sql .= " AND categoria = '$categoria'";
+		}
+		
 		// busca toda a informação dos produtos disponíveis na base de dados
-		$produtos = $bd->select("SELECT * FROM produtos WHERE visivel = 1");
+		$produtos = $bd->select($sql);
 		
 		return $produtos;
 	}
