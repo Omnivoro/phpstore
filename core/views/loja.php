@@ -3,7 +3,7 @@
 		<div class="col-12 text-center my-4">
 			<a href="?a=loja&c=todos" class="btn btn-primary">Todos</a>
 			<?php foreach($categorias as $categoria): ?>
-				<a href="?a=loja&c=<?= $categoria ?>" class="btn btn-primary"><?= ucfirst($categoria) ?></a>
+				<a href="?a=loja&c=<?= $categoria ?>" class="btn btn-primary"><?= ucfirst(preg_replace("/\_/", " ", $categoria)) ?></a>
 			<?php endforeach; ?>
 		</div>
 	</div>
