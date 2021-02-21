@@ -22,7 +22,7 @@
 						<h3><?= $produto->nome_produto ?></h3>
 						<h2><?= $produto->preco ?></h2>
 						<div>
-							<button>Addicionar ao carrinho</button>
+							<button class="btn btn-info btn-sm"><i class="fas fa-shopping-cart me-2">&nbsp;&nbsp;Addicionar ao carrinho</i></button>
 						</div>
 					</div>
 				</div>
