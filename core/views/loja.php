@@ -20,7 +20,7 @@
 					<div class="text-center p-3 box-produto">
 						<img src="assets/images/produtos/<?= $produto->imagem ?>" class="img-fluid" >
 						<h3><?= $produto->nome_produto ?></h3>
-						<h2><?= $produto->preco ?></h2>
+						<h2><?= preg_replace("/\./", ",",$produto->preco) ?>&nbsp;&dollar;</h2>
 						<div>
 							<button class="btn btn-info btn-sm"><i class="fas fa-shopping-cart me-2">&nbsp;&nbsp;Addicionar ao carrinho</i></button>
 						</div>
