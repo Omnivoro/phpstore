@@ -18,6 +18,7 @@ $rotas = [
 	//carrinho
 	'adicionar_carrinho' => 'carrinho@adicionar_carrinho',
 	'carrinho' => 'carrinho@carrinho',
+	'limpar_carrinho' => 'carrinho@limpar_carrinho',
 ];
 
 // define ação por defeito
