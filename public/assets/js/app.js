@@ -10,3 +10,13 @@ function adicionar_carrinho(id_produto){
 		.catch(err => (console.log(err)));
 }
 
+// ===========================================================
+function limpar_carrinho(){
+	
+	// limpa todo o carrino
+	axios.defaults.withCredentials = true;
+	axios.get('?a=limpar_carrinho')
+		.then(() => document.getElementById('carrinho').innerText = 0)
+		.catch(err => (console.log(err)));
+}
+
