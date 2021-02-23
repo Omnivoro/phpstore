@@ -22,6 +22,15 @@ class Carrinho{
 		
 		// busca a informação o id_produto query string
 		$id_produto = $_GET['id_produto'];
+		
+		$produtos = new Produtos();
+		$resultado = $produtos->verificar_stock_produto($id_produto);
+		
+		if(!$resultado){
+			$erro = "Location: " . BASE_URL . "index.php?a=loja";
+			header($erro, true, 404);
+			return;
+		}
 
 		// adição/gestão da variável de sessão do carrinho 
 		$carrinho = [];
