@@ -22,7 +22,11 @@
 						<h3><?= $produto->nome_produto ?></h3>
 						<h2><?= preg_replace("/\./", ",",$produto->preco) ?>&nbsp;&dollar;</h2>
 						<div>
-							<button class="btn btn-info btn-sm" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)"><i class="fas fa-shopping-cart me-2">&nbsp;&nbsp;Addicionar ao carrinho</i></button>
+							<?php if($produto->stock > 0):?>
+								<button class="btn btn-info btn-sm" onclick="adicionar_carrinho(<?= $produto->id_produto ?>)"><i class="fas fa-shopping-cart me-2">&nbsp;&nbsp;Addicionar ao carrinho</i></button>
+							<?php else:?>
+								<button class="btn btn-danger btn-sm" disabled><i class="fas fa-shopping-cart me-2">&nbsp;&nbsp;Sem stock</i></button>
+							<?php endif;?>
 						</div>
 					</div>
 				</div>
