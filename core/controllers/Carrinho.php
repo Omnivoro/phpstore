@@ -47,7 +47,10 @@ class Carrinho{
 	public function limpar_carrinho(){
 		
 		// limpa todos os produtos do carrinho
-		$_SESSION['carrinho'] = [];
+		unset($_SESSION['carrinho']);
+		
+		// refrescar a página do carrinho
+		$this->carrinho();
 		
 	}
 	
