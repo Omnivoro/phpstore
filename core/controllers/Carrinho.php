@@ -81,8 +81,17 @@ class Carrinho{
 			$dados = [
 				'carrinho' => 1
 			];
+			
+			$ids = [];
+            foreach($_SESSION['carrinho'] as $id_produto => $quantidade){
+                array_push($ids, $id_produto);
+            }
 		}
-        
+		
+        $ids = implode(",", $ids);
+		Store::printData($ids);
+		die();
+		
 		//apresenta a pรกgina do carrinho
 		Store::Layout([
             'layouts/html_header',
