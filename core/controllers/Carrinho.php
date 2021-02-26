@@ -71,6 +71,17 @@ class Carrinho{
 	
 	// ===========================================================
     public function carrinho(){
+		
+		// verificar se existe carrinho
+        if(!isset($_SESSION['carrinho']) || count($_SESSION['carrinho']) == 0){
+            $dados = [
+                'carrinho' => null
+            ];
+        } else {
+			$dados = [
+				'carrinho' => 1
+			];
+		}
         
 		//apresenta a pรกgina do carrinho
 		Store::Layout([
@@ -79,7 +90,7 @@ class Carrinho{
 			'carrinho',
 			'layouts/footer',
             'layouts/html_footer',
-        ]);
+        ], $dados);
     }
 }
 	
