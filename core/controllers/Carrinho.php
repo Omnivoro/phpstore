@@ -15,8 +15,7 @@ class Carrinho{
 				
 		// vai buscar o id_produto à query string
 		if(!isset($_GET['id_produto'])){
-			$location = "Location: " . BASE_URL . "index.php?a=loja";
-			header($locaion, true, 404);
+			echo isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : '';
 			return;
 		}
 		
@@ -27,8 +26,7 @@ class Carrinho{
 		$resultado = $produtos->verificar_stock_produto($id_produto);
 		
 		if(!$resultado){
-			$erro = "Location: " . BASE_URL . "index.php?a=loja";
-			header($erro, true, 404);
+			echo isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : '';
 			return;
 		}
 
