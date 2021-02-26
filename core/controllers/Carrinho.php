@@ -89,7 +89,10 @@ class Carrinho{
 		}
 		
         $ids = implode(",", $ids);
-		Store::printData($ids);
+		$produtos = new Produtos();
+        $resultados = $produtos->buscar_produtos_por_ids($ids);
+		
+		Store::printData($resultados);
 		die();
 		
 		//apresenta a pรกgina do carrinho
