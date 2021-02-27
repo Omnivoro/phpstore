@@ -92,7 +92,31 @@ class Carrinho{
 		$produtos = new Produtos();
         $resultados = $produtos->buscar_produtos_por_ids($ids);
 		
-		Store::printData($resultados);
+		$dados_tmp = [];
+		foreach($_SESSION['carrinho'] as $id_produto => $quantidade_carrinho){
+
+			// imagem do produto
+			foreach($resultados as $produto){
+				if($produto->id_produto == $id_produto){
+					$imagem = $produto->imagem;
+					$titulo = $produto->nome_produto;
+					$quantidade = $quantidade_carrinho;
+					$preco = $produto->preco * $quantidade;
+
+					// colocar o produto na coleção
+					array_push($dados_tmp, [
+						'imagem' => $imagem,
+						'titulo' => $titulo,
+						'quantidade' => $quantidade,
+						'preco' => $preco
+					]);
+
+					break;
+				}
+			}
+		}
+		
+		Store::printData($dados_tmp);
 		die();
 		
 		//apresenta a pรกgina do carrinho
