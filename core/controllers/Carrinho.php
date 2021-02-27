@@ -86,34 +86,52 @@ class Carrinho{
             foreach($_SESSION['carrinho'] as $id_produto => $quantidade){
                 array_push($ids, $id_produto);
             }
-		}
 		
-        $ids = implode(",", $ids);
-		$produtos = new Produtos();
-        $resultados = $produtos->buscar_produtos_por_ids($ids);
+			$ids = implode(",", $ids);
+			$produtos = new Produtos();
+			$resultados = $produtos->buscar_produtos_por_ids($ids);
 		
-		$dados_tmp = [];
-		foreach($_SESSION['carrinho'] as $id_produto => $quantidade_carrinho){
+			/* 
+            fazer um ciclo por cada produto no carrinho
+                - identificar o id e usar os dados da bd para criar
+                  uma coleção de dados para a página do carrinho
 
-			// imagem do produto
-			foreach($resultados as $produto){
-				if($produto->id_produto == $id_produto){
-					$imagem = $produto->imagem;
-					$titulo = $produto->nome_produto;
-					$quantidade = $quantidade_carrinho;
-					$preco = $produto->preco * $quantidade;
+                imagem | titulo | quantidade | preço | xxx
+            */
+			
+			$dados_tmp = [];
+			foreach($_SESSION['carrinho'] as $id_produto => $quantidade_carrinho){
 
-					// colocar o produto na coleção
-					array_push($dados_tmp, [
-						'imagem' => $imagem,
-						'titulo' => $titulo,
-						'quantidade' => $quantidade,
-						'preco' => $preco
-					]);
+				// imagem do produto
+				foreach($resultados as $produto){
+					if($produto->id_produto == $id_produto){
+						$imagem = $produto->imagem;
+						$titulo = $produto->nome_produto;
+						$quantidade = $quantidade_carrinho;
+						$preco = $produto->preco * $quantidade;
 
-					break;
+						// colocar o produto na coleção
+						array_push($dados_tmp, [
+							'imagem' => $imagem,
+							'titulo' => $titulo,
+							'quantidade' => $quantidade,
+							'preco' => $preco
+						]);
+
+						break;
+					}
 				}
 			}
+			// calcular o total
+            $total_da_encomenda = 0;
+            foreach($dados_tmp as $item){
+                $total_da_encomenda += $item['preco'];
+            }
+            array_push($dados_tmp, $total_da_encomenda);
+
+            $dados = [
+                'carrinho' => $dados_tmp
+            ];
 		}
 		
 		Store::printData($dados_tmp);
