@@ -127,16 +127,14 @@ class Carrinho{
             foreach($dados_tmp as $item){
                 $total_da_encomenda += $item['preco'];
             }
-            array_push($dados_tmp, $total_da_encomenda);
+            //array_push($dados_tmp, $total_da_encomenda);
 
             $dados = [
-                'carrinho' => $dados_tmp
+                'carrinho' => $dados_tmp,
+				'total' => $total_da_encomenda
             ];
 		}
-		
-		Store::printData($dados_tmp);
-		die();
-		
+				
 		//apresenta a pรกgina do carrinho
 		Store::Layout([
             'layouts/html_header',
