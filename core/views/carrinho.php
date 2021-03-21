@@ -17,7 +17,7 @@
 						<tr>
 							<th>imgens</th>
 							<th>Produto</th>
-							<th>Quantidade</th>
+							<th class="text-center">Quantidade</th>
 							<th class="text-end">Valor sub-total</th>
 							<th>ações</th>
 						</tr>
@@ -27,10 +27,12 @@
 							<!-- lista de produtos -->
 							<tr>
 								<td><img src="assets/images/produtos/<?= $produto['imagem']?>" class="img-fluid" width="50px"/></td>
-								<td><?= $produto['titulo'] ?></td>
-								<td><?= $produto['quantidade'];?></td>
-								<td class="text-end"><?= number_format($produto['preco'], 2, ',', '.') ?>&nbsp;&#36;</td>
-								<td><button class="btn btn-danger">
+								<td class="text-start align-middle"><h5><?= $produto['titulo'] ?></h5></td>
+								<td class="text-center align-middle"><h5><?= $produto['quantidade'];?></h5></td>
+								<td class="text-end align-middle"><h4>
+									<?= number_format($produto['preco'], 2, ',', '.')?>
+									&nbsp;&#36;</h4></td>
+								<td class="text-start align-middle"><button class="btn btn-danger btn-sm">
 									<i class="fas fa-times"></i>
 								</button></td>
 							</tr>
@@ -40,9 +42,11 @@
 							<tr>	
 								<td></td>
 								<td></td>
-								<td><?= $total_quantidade ?></td>
-								<td class="text-end"><?= number_format($total, 2, ',', '.') ?>&nbsp;&#36;</td>
-								<td class="text-start">Total</td>
+								<td class="text-center align-middle"><h5><?= $total_quantidade ?></h5></td>
+								<td class="text-end align-middle"><h3>
+									<?= number_format($total, 2, ',', '.') ?>
+								&nbsp;&#36;</h3></td>
+								<td class="text-start align-middle"><h3>Total</h3></td>
 							</tr>
 					</tbody>
 				</table>
