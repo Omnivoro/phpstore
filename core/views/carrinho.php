@@ -37,8 +37,7 @@
 								<td class="text-start align-middle"><h5><?= $produto['titulo'] ?></h5></td>
 								<td class="text-center align-middle"><h5><?= $produto['quantidade'];?></h5></td>
 								<td class="text-end align-middle"><h4>
-									<?= number_format($produto['preco'], 2, ',', '.')?>
-									&nbsp;&#36;</h4></td>
+									<?= number_format($produto['preco'], 2, ',', '.')?>&#36;</h4></td>
 								<td class="text-start align-middle">
 									<a href="?a=remover_produto_carrinho&id_produto=<?= $produto['id_produto'] ?>" class="btn btn-danger btn-sm">
 									<i class="fas fa-times"></i>
@@ -51,16 +50,19 @@
 								<td></td>
 								<td></td>
 								<td class="text-center align-middle"><h5><?= $total_quantidade ?></h5></td>
-								<td class="text-end align-middle"><h3>
-									<?= number_format($total, 2, ',', '.') ?>
-								&nbsp;&#36;</h3></td>
+								<td class="text-end align-middle"><h3><?= number_format($total, 2, ',', '.') ?>&#36;</h3></td>
 								<td class="text-start align-middle"><h3>Total</h3></td>
 							</tr>
 					</tbody>
 				</table>
 				<div class="row">
         			<div class="col">
-						<a href="?a=limpar_carrinho" class="btn btn-sm btn-primary">Limpar carrinho</a>
+					<button class="btn btn-sm btn-primary" onclick="limpar_carrinho()">Limpar carrinho</button>
+					<span id="confirmar_limpar_carrinho" style="display: none;" class="ms-3">
+						<p style="display: inline;">Tem a certeça?&nbsp;&nbsp;</p>
+						<button class="btn btn-sm btn-primary" onclick="limpar_carrinho_off()">&nbsp;Não&nbsp;</button>
+						<a href="?a=limpar_carrinho" class="btn btn-sm btn-primary">&nbsp;Sim&nbsp;</a>
+					</span>
 					</div>
 		 			<div class="col text-end">	
 						<a href="?a=loja" class="btn btn-sm btn-primary">Contiuar a comprar</a>
