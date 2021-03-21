@@ -58,6 +58,25 @@ class Carrinho{
 	}
 	
 	// ===========================================================
+	public function remover_produto_carrinho(){
+		
+		// buscar o $id_produto na query string
+		$id_produto = $_GET['id_produto'];
+		
+		// buscar o carrinho à sessão
+		$carrinho = $_SESSION['carrinho'];
+		
+		// remover o produto do carrinho
+		unset($carrinho[$id_produto]);
+		
+		// atualizar o carrinho na sessão
+		$_SESSION['carrinho'] = $carrinho;
+		
+		// apresentar novamente a página do carrinho
+		$this->carrinho();
+	}
+	
+	// ===========================================================
 	public function limpar_carrinho(){
 		
 		// limpa todos os produtos do carrinho
