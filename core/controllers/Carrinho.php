@@ -105,6 +105,7 @@ class Carrinho{
 				// imagem do produto
 				foreach($resultados as $produto){
 					if($produto->id_produto == $id_produto){
+						$id_produto = $produto->id_produto;
 						$imagem = $produto->imagem;
 						$titulo = $produto->nome_produto;
 						$quantidade = $quantidade_carrinho;
@@ -112,6 +113,7 @@ class Carrinho{
 
 						// colocar o produto na coleção
 						array_push($dados_tmp, [
+							'id_produto' => $id_produto,
 							'imagem' => $imagem,
 							'titulo' => $titulo,
 							'quantidade' => $quantidade,
@@ -122,6 +124,7 @@ class Carrinho{
 					}
 				}
 			}
+			
 			// calcular o total
             $total_da_encomenda = 0;
             foreach($dados_tmp as $item){
