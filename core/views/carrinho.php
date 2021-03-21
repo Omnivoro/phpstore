@@ -29,7 +29,7 @@
 								<td><img src="assets/images/produtos/<?= $produto['imagem']?>" class="img-fluid" width="50px"/></td>
 								<td><?= $produto['titulo'] ?></td>
 								<td><?= $produto['quantidade'];?></td>
-								<td class="text-end"><?= $produto['preco'] ?></td>
+								<td class="text-end"><?= number_format($produto['preco'], 2, ',', '.') ?>&nbsp;&#36;</td>
 								<td><button class="btn btn-danger">
 									<i class="fas fa-times"></i>
 								</button></td>
@@ -41,8 +41,8 @@
 								<td></td>
 								<td></td>
 								<td><?= $total_quantidade ?></td>
-								<td class="text-end"><?= $total?></td>
-								<td>Total</td>
+								<td class="text-end"><?= number_format($total, 2, ',', '.') ?>&nbsp;&#36;</td>
+								<td class="text-start">Total</td>
 							</tr>
 					</tbody>
 				</table>
