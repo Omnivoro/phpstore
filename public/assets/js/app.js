@@ -10,4 +10,15 @@ function adicionar_carrinho(id_produto){
 		.catch(err => (console.log(err)));
 }
 
+// ===========================================================
+function limpar_carrinho(){
+	let e = document.getElementById("confirmar_limpar_carrinho")
+	e.style.display = "inline";
+}
+
+// ===========================================================
+function limpar_carrinho_off(){
+	let e = document.getElementById("confirmar_limpar_carrinho")
+	e.style.display = "none";
+}
 
