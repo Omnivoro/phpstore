@@ -39,9 +39,10 @@
 								<td class="text-end align-middle"><h4>
 									<?= number_format($produto['preco'], 2, ',', '.')?>
 									&nbsp;&#36;</h4></td>
-								<td class="text-start align-middle"><button class="btn btn-danger btn-sm">
+								<td class="text-start align-middle">
+									<a href="?a=remover_produto_carrinho&id_produto=<?= $produto['id_produto'] ?>" class="btn btn-danger btn-sm">
 									<i class="fas fa-times"></i>
-								</button></td>
+								</a></td>
 							</tr>
 							<?php $total_quantidade += $produto['quantidade']; ?>
 						<?php endforeach;?>
