@@ -1,15 +1,22 @@
 <?php $total_quantidade = 0 ?>
-<h3>Carrinho!</h3>
-<a href="?a=limpar_carrinho" class="btn btn-sm btn-primary">Limpar carrinho</a>
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+			<h3 class="my-3">A sua encomenda</h3>	
+ 		</div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col">
 
         <?php if($carrinho == null):?>
-            <p>Carrinho vazio</p>
-            <p><a href="?a=loja" class="btn btn-primary">Loja</a></p>
+            <p class="text-center">Não existem produtos no carrinho</p>
+			<div class="mt-4 text-center">
+				<a href="?a=loja" class="btn btn-primary">Ir para a loja</a>
+			</div>
         <?php else: ?>
 			<div style="margin-button: 80px;">
 				<table class="table">
@@ -50,6 +57,16 @@
 							</tr>
 					</tbody>
 				</table>
+				<div class="row">
+        			<div class="col">
+						<a href="?a=limpar_carrinho" class="btn btn-sm btn-primary">Limpar carrinho</a>
+					</div>
+		 			<div class="col text-end">	
+						<a href="?a=loja" class="btn btn-sm btn-primary">Contiuar a comprar</a>
+						<a href="#" class="btn btn-sm btn-primary">Finalizar encomenda</a>
+ 					</div>
+    			</div>
+				
 			</div>
         <?php endif; ?>
         </div>
